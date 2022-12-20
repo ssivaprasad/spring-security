@@ -11,7 +11,6 @@ public class HealthController {
         return "Health";
     }
 
-
     @GetMapping("/system-metricks")
     public String systemMetricks() {
         return "System Metricks";
