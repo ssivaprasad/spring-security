@@ -27,11 +27,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //@formatter:off
-        auth.jdbcAuthentication()
+
+        // Below code creates spring security default schema and loads users
+
+          /*
+           auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .withDefaultSchema()
                 .withUser(User.withUsername("siva").password("siva").roles(new String[]{"USER"}))
                 .withUser(User.withUsername("prasad").password("prasad").roles(new String[]{"USER", "ADMIN"}));
+          */
+
+
+        // Below code creates schema from schema-h2.sql and loads data from data-h2.sql
+        auth.jdbcAuthentication().dataSource(dataSource);
         //@formatter:on
     }
 
